@@ -8,26 +8,36 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should subtract two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a: 10, b: 5, action: Action.Subtract });
+    expect(result).toBe(5);
   });
 
   test('should multiply two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a: 2, b: 2, action: Action.Multiply });
+    expect(result).toBe(4);
   });
 
   test('should divide two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({ a: 10, b: 2, action: Action.Divide });
+    expect(result).toBe(5);
   });
 
   test('should exponentiate two numbers', () => {
-    // Write your test here
+    const result = simpleCalculator({
+      a: 5,
+      b: 3,
+      action: Action.Exponentiate,
+    });
+    expect(result).toBe(125);
   });
 
   test('should return null for invalid action', () => {
-    // Write your test here
+    const result = simpleCalculator({ a: 10, b: 5, action: 'invalidAction' });
+    expect(result).toBeNull();
   });
 
   test('should return null for invalid arguments', () => {
-    // Write your test here
+    const result = simpleCalculator({ a: '10', b: '5', action: Action.Add });
+    expect(result).toBeNull();
   });
 });
