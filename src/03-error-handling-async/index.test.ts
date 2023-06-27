@@ -1,6 +1,6 @@
 // Uncomment the code below and write your tests
 import {
-  // throwError,
+  throwError,
   // throwCustomError,
   resolveValue,
   // MyAwesomeError,
@@ -21,7 +21,14 @@ describe('resolveValue', () => {
 
 describe('throwError', () => {
   test('should throw error with provided message', () => {
-    // Write your test here
+    const errorMessage = 'Error message';
+
+    expect.assertions(1);
+    try {
+      throwError(errorMessage);
+    } catch (e) {
+      expect(e).toHaveProperty('message', errorMessage);
+    }
   });
 
   test('should throw error with default message if message is not provided', () => {
