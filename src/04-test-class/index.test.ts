@@ -1,13 +1,21 @@
 // Uncomment the code below and write your tests
-// import { getBankAccount } from '.';
+import {
+  getBankAccount,
+  BankAccount,
+  // TransferFailedError,
+  // SynchronizationFailedError,
+  InsufficientFundsError,
+} from '.';
 
 describe('BankAccount', () => {
   test('should create account with initial balance', () => {
-    // Write your test here
+    const bankAccount = getBankAccount(500);
+    expect(bankAccount).toBeInstanceOf(BankAccount);
   });
 
   test('should throw InsufficientFundsError error when withdrawing more than balance', () => {
-    // Write your test here
+    const bankAccount = getBankAccount(500);
+    expect(() => bankAccount.withdraw(600)).toThrow(InsufficientFundsError);
   });
 
   test('should throw error when transferring more than balance', () => {
