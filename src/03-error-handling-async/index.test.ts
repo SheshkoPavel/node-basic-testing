@@ -22,13 +22,7 @@ describe('resolveValue', () => {
 describe('throwError', () => {
   test('should throw error with provided message', () => {
     const errorMessage = 'Error message';
-
-    expect.assertions(1);
-    try {
-      throwError(errorMessage);
-    } catch (e) {
-      expect(e).toHaveProperty('message', errorMessage);
-    }
+    expect(() => throwError(errorMessage)).toThrow(errorMessage);
   });
 
   test('should throw error with default message if message is not provided', () => {
